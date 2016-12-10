@@ -1,2 +1,8 @@
-<h1><%= @title %></h1>
-<p><%= @content =%></p>
+<ul>
+  <% @contacts.each do |contact_id, contact_data| %>
+    <li><a href="/contact/<%= contact_id %>"><%= contact_data[:name] %></a></li>
+  <% end %>
+</ul>
+<form action="/new" method="get">
+  <button type="submit">Add New Contact</button>
+</form>

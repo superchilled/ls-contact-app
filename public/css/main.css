@@ -88,6 +88,13 @@ textarea {
    Author's custom styles
    ========================================================================== */
 
+th, td {
+  vertical-align: top;
+}
+
+th {
+  text-align: right;
+}
 
 
 

@@ -1,0 +1,25 @@
+<h2><%= @contact[:name] %></h2>
+<table>
+  <tr>
+    <th>Tel:</th>
+    <td><%= @contact[:tel] %></td>
+  </tr>
+  <tr>
+    <th>Email:</th>
+    <td><%= @contact[:email] %></td>
+  </tr>
+  <tr>
+    <th>Address:</th>
+    <td>
+      <% @contact[:address].values.compact.each do |line| %>
+        <%= line %><br>
+      <% end %>
+    </td>
+  </tr>
+</table>
+<form action="/update/<%= @id %>" method="get">
+  <button type="submit">Update Contact</button>
+</form>
+<form action="/delete/<%= @id %>" method="post">
+  <button type="submit">Delete Contact</button>
+</form>

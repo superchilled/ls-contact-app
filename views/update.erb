@@ -1,0 +1,23 @@
+<h2>Updating: <%= @contact[:name] %></h2>
+<form action="/update/<%= @id %>" method="post">
+  <label>Name:</label>
+  <input type="text" name="name" value="<%= @contact[:name] %>">
+  <label>Tel:</label>
+  <input type="tel" name="tel" value="<%= @contact[:tel] %>">
+  <label>Email Address:</label>
+  <input type="email" name="email" value="<%= @contact[:email] %>">
+  <h3>Postal Address</h3>
+  <label>Address Line 1:</label>
+  <input type="text" name="address_1" value="<%= @contact[:address][:address_1] %>">
+  <label>Address Line 2:</label>
+  <input type="text" name="address_2" value="<%= @contact[:address][:address_2] %>">
+  <label>City:</label>
+  <input type="text" name="city" value="<%= @contact[:address][:city] %>">
+  <label>Region:</label>
+  <input type="text" name="region" value="<%= @contact[:address][:region] %>">
+  <label>Postcode:</label>
+  <input type="text" name="postcode" value="<%= @contact[:address][:postcode] %>">
+  <label>Country:</label>
+  <input type="text" name="country" value="<%= @contact[:address][:country] %>">
+  <button type="submit">Update</button>
+</form>

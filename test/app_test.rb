@@ -29,7 +29,15 @@ class AppTest < Minitest::Test
     get "/"
 
     assert_equal 200, last_response.status
-    assert last_response.body.include?("<h1>Hello World!")
-    assert last_response.body.include?("<p>Welcome to Sinatra Boilerplate!</p>")
+    assert last_response.body.include?("<h1>Contacts</h1>")
+    assert last_response.body.include?("Keri Silver")
+  end
+
+  def test_update_contact
+    post "/update/2", {name: 'Molly Millions', tel: "00000000"}
+
+    assert_equal 302, last_response.status
+    get last_response["Location"]
+    assert_includes last_response.body, "<td>00000000</td>"
   end
 end
