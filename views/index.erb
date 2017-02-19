@@ -1,6 +1,6 @@
 <ul>
-  <% @contacts.each do |contact_id, contact_data| %>
-    <li><a href="/contact/<%= contact_id %>"><%= contact_data[:name] %></a></li>
+  <% @contacts.each do |contact| %>
+    <li><a href="/contact/<%= contact[:id] %>"><%= contact[:name] %></a></li>
   <% end %>
 </ul>
 <form action="/new" method="get">
