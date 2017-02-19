@@ -3,6 +3,7 @@
 require 'sinatra'
 require 'sinatra/reloader'
 require 'tilt/erubis'
+require "easy_breadcrumbs"
 require_relative 'db'
 
 configure(:development) do
