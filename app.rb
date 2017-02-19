@@ -3,7 +3,6 @@
 require 'sinatra'
 require 'sinatra/reloader'
 require 'tilt/erubis'
-require 'yaml'
 require_relative 'db'
 
 configure(:development) do
