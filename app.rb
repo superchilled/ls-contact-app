@@ -5,6 +5,7 @@ require 'sinatra/reloader'
 require 'tilt/erubis'
 require "easy_breadcrumbs"
 require_relative 'db'
+require_relative 'addressify'
 
 configure(:development) do
   require "sinatra/reloader"
@@ -13,19 +14,6 @@ end
 
 before do
   @db = DatabaseConnection.new(logger)
-end
-
-helpers do
-  def compact_address(contact)
-    [
-      contact[:address_1],
-      contact[:address_2],
-      contact[:city],
-      contact[:region],
-      contact[:postcode],
-      contact[:country]
-    ].compact.reject { |addr_line| addr_line == '' }
-  end
 end
 
 get '/' do

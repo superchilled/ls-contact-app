@@ -11,9 +11,7 @@
   <tr>
     <th>Address:</th>
     <td>
-      <% compact_address(@contact).each do |address_line| %>
-        <%= address_line %> <br/>
-      <% end %>
+      <%= addressify(@contact, :address_1, :address_2, :city, :state, :country) %>
     </td>
   </tr>
 </table>
