@@ -1,5 +1,3 @@
-# sinatra-boilerplate
+# Contact App
 
-Barebones boilerplate for Sinatra applications
-
-HTML is based on https://github.com/h5bp/html5-boilerplate
+Simple contact app built using Sinatra and Sequel

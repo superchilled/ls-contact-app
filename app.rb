@@ -6,6 +6,8 @@ require 'tilt/erubis'
 require "easy_breadcrumbs"
 require_relative 'db'
 require_relative 'addressify'
+require_relative 'paginate'
+require 'pry'
 
 configure(:development) do
   require "sinatra/reloader"
@@ -16,8 +18,15 @@ before do
   @db = DatabaseConnection.new(logger)
 end
 
+# helpers do
+#   def page
+#     [params[:page].to_i - 1, 0].max
+#   end
+# end
+
 get '/' do
-  @contacts = @db.contact_list
+  @contacts = @db.contact_list(page)
+  # binding.pry
   erb :index
 end
 

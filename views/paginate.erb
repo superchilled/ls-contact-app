@@ -1,0 +1,21 @@
+<style>
+ul.sinatra-pagination > li {
+    float: left;
+    margin-right: 10px;
+    display: inline-block;
+    list-style-type: none;
+}
+</style>
+<ul class='sinatra-pagination'>
+  <li>
+    <a class='btn btn-first' href='<%= pagination_url(uri, params.merge('page' => 1)) %>'><%= labels[:first] %></a>
+  </li>
+<% (from..to).each do |n| %>
+  <li>
+    <a class='btn' href='<%= pagination_url(uri, params.merge('page' => n)) %>'><%= n %></a>
+  </li>
+<% end %>
+  <li>
+    <a class='btn btn-last' href='<%= pagination_url(uri, params.merge('page' => last)) %>'><%= labels[:last] %></a>
+  </li>
+</ul>

@@ -1,8 +1,12 @@
 <ul>
-  <% @contacts.each do |contact| %>
+  <% @contacts.selection.each do |contact| %>
     <li><a href="/contact/<%= contact[:id] %>"><%= contact[:name] %></a></li>
   <% end %>
 </ul>
+
+<%= paginate(@contacts, renderer: 'erb', view: File.read('views/paginate.erb'), items_per_page: 1, width: 3) %>
+
+<br>
 <form action="/new" method="get">
   <button type="submit">Add New Contact</button>
 </form>

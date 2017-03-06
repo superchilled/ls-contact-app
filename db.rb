@@ -5,13 +5,17 @@ require 'pry'
 
 DB = Sequel.connect("postgres://karl:nikita@localhost/contacts")
 
+Struct.new('Result', :total, :size, :selection)
+
 class DatabaseConnection
   def initialize(logger)
     DB.logger = logger
   end
 
-  def contact_list
-    DB[:contacts].select(:id, :name)
+  def contact_list(offset)
+    total = DB[:contacts].count
+    selection = DB[:contacts].limit(1, offset).select(:id, :name)
+    Struct::Result.new(total, selection.count, selection)
   end
 
   def get_contact(id)
